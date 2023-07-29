@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\TransactionController;
+use App\Models\Transaction;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route::get('/clients', [ClientController::class, 'index']);
 Route::apiResource('/clients', ClientController::class)->only(['index']);
-
+Route::post('/transactions', [TransactionController::class, 'transfert']);

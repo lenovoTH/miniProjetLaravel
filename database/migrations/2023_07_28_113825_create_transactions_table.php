@@ -18,8 +18,8 @@ return new class extends Migration
             $table->float('montant');
             $table->datetime('date');
             $table->foreignId('expediteur_id')->constrained('comptes')->onDelete('cascade');
-            $table->foreignId('recepteur_id')->constrained('comptes')->onDelete('cascade')->nullable;
-            $table->integer('code')->nullable();
+            $table->foreignId('recepteur_id')->constrained('comptes')->onDelete('cascade')->nullable();
+            $table->string('code')->nullable();
             $table->timestamps();
         });
     }
