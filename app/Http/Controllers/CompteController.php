@@ -15,6 +15,12 @@ class CompteController extends Controller
         //
     }
 
+    public function getFournisseurs()
+    {
+        $fournisseurs = Compte::pluck('fournisseur');
+        return response()->json($fournisseurs);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
