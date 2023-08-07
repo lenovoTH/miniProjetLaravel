@@ -16,9 +16,10 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Client::class)->constrained()->onDelete('cascade');
             $table->string('fournisseur');
-            $table->float('solde');
-            $table->string('numerocompte')->unique();
+            $table->float('solde')->default(0);
+            $table->string('numerocompte');
             $table->string('code');
+            $table->enum('statut', ['fermer', 'ouvert', 'bloquer'])->default('ouvert');
             $table->timestamps();
         });
     }

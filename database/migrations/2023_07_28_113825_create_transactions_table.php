@@ -17,9 +17,10 @@ return new class extends Migration
             $table->string('typetransaction');
             $table->float('montant');
             $table->datetime('date');
-            $table->foreignId('expediteur_id')->constrained('comptes')->onDelete('cascade');
+            $table->foreignId('expediteur_id')->constrained('comptes')->onDelete('cascade')->nullable();
             $table->foreignId('recepteur_id')->constrained('comptes')->onDelete('cascade')->nullable();
             $table->string('code')->nullable();
+            $table->boolean('annuler')->default(1);
             $table->timestamps();
         });
     }
